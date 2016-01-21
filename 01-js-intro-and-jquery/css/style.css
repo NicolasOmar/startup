@@ -5,7 +5,7 @@
 .main ul li{ display: block; }
 .hidden{ display:none; }
 .album{
-	float:left;
+	float:right;
 	border:3px blue solid;
 	margin:5px;
 	width:320px;
