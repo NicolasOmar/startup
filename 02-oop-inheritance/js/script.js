@@ -1,14 +1,9 @@
 //1 - Create a Movie object:
-
-/*function Movie(Hashmap){
-	this.hashmap = Hashmap;
-}
-
-Movie.prototype = {
-	constructor:Movie,
+//NOTE: I used prototypes in the last version, but i prefer a classic object. 	 that way i made point 8
+function Movie() {
 	
 	//4 - Publish "playing" event on Movie.play()
-	play:function(){
+	this.play = function(){
 		if(this.title == undefined)
 			return "The movie has no title. Please, set one using the function set('title','movieTitle')";
 		else if (this["playing"] == true)
@@ -21,7 +16,7 @@ Movie.prototype = {
 	},
 	
 	//5 - Publish "stopped" event on Movie.stop().
-	stop:function(){
+	this.stop = function(){
 		if(this.title == undefined)
 			return "The movie has no title. Please, set one using the function set('title','movieTitle')";
 		else if (this["playing"] == undefined || this["playing"] == false)
@@ -33,8 +28,8 @@ Movie.prototype = {
 		}
 	},
 	
-	set:function(attr, value){
-		if(attr == undefined || value == undefined)
+	this.set = function(attr, value){
+		if(attr == undefined || value == undefined || value == " ")
 			return "The new Movie's hasn't been used correctaly. Please, use the function set('title','movieTitle')'";
 		else
 		{
@@ -43,18 +38,29 @@ Movie.prototype = {
 		}
 	},
 	
-	get:function(attr){
+	this.get = function(attr){
 		if(this[attr] == undefined	)
 			return "The movie hasn't such attribute. Please, create one using the function set()";
 		else
 			return "The Movie's " + attr + " is " + this[attr];
 	}
-}*/
+}
 
+
+//2 - Instantiate some of your favorite movies and play with them in the console.
+AmericanP = new Movie();
+AmericanP.set("title","American Pie: The Reunion");
+
+//6 - Log to console when each event is fired.
+console.log(AmericanP.play());
+console.log(AmericanP.stop());
+
+//3 - Add a MovieObserver class that listens for "playing" and “stopped” events.
+//NOTE: I couldn't understand the point so far, i will ask for it the next monday
+
+//7 - Refactor Movie class as a Module keeping your previous code for reference.
+//NOTE: I searched for a possible solution, which i found it in http://stackoverflow.com/questions/26061120/refactor-javascript-class-as-a-module . I just modify the methods and attributes of the module to extend its functionality over the original idea. I hope this is what you ask
 /*
-7 - Refactor Movie class as a Module keeping your previous code for reference.
-NOTE: I searched a possible solution which i found in http://stackoverflow.com/questions/26061120/refactor-javascript-class-as-a-module, i just modify the methods and attributes of the module to extend its functionality over the original idea. I hope this is what you ask
-*/
 var Movie = function () {
 
   var model = 
@@ -120,11 +126,67 @@ var Movie = function () {
     }
 
     return model;
-};
+};*/
 
-//2 - Instantiate some of your favorite movies and play with them in the console.
-AmericanP = new Movie(0);
-AmericanP.set("title","American Pie");
-Metegol = new Movie(1);
-Elements = new Movie(2);
-Boruto = new Movie(3);
+//8 - Create a DownloadableMovie that extends from Movie adding a download method. Here you will have to set the correct prototype to DownloadableMovie.
+function DownloadableMovie ()
+{	
+	this.download = function()
+	{
+		if(this.title == undefined)
+			return "The movie has no title. Please, set one using the function set('title','movieTitle')";
+		else
+			return "Downloading " + this.title;
+	}
+}
+Movie.call(DownloadableMovie.prototype);
+Rocky = new DownloadableMovie();
+
+//9 - Create a mixin object called Social with the methods: share(friendName) and like().
+function Social() {
+	this.share = function(friendName)
+	{
+		if(this.title == undefined)
+			return "The movie has no title. Please, set one using the function set('title','movieTitle')";
+		else if (friendName == undefined)
+			return "You didn´t ingress a friend who share the movie " + this.title + ". Please, include it the next time";
+		else
+			return "Sharing " + this.title + " with " + friendName;
+	}
+	
+	this.like = function()
+	{
+		if(this.title == undefined)
+			return "The movie has no title. Please, set one using the function set('title','movieTitle')";
+			return this.title + " has a new Like";
+		//i don´t know if this is the objective of this function
+	}
+}
+//10 - Apply the mixin to Movie object and play with the console output.
+Social.call(Movie.prototype);
+console.log(AmericanP.share("Mauricio Gomez"));
+console.log(AmericanP.like());
+
+//11 - Create an Actor class and create some actors from one of your favorite movies.
+function Actor(Name){
+	this.name = Name;
+}
+jim = new Actor("Jason Biggs");
+stiffler = new Actor("Sean William Scott");
+oz = new Actor("Chris Klein");
+kevin = new Actor("Thomas Ian Nicholas");
+finch = new Actor("Eddie Kayne Thomas");
+michelle = new Actor("Alyson Hannigan");
+vicky = new Actor("Tara Reid");
+heather = new Actor("Mena Suvari");
+
+//12 - Show how you would add an array of actors to a Movie object.
+var ActorsArray = [jim, stiffler, oz, kevin, finch, michelle, vicky, heather];
+AmericanP.set("cast", ActorsArray);
+//NOTE: this is the first way than i imagine to return the whole cast using one function (i had to include it using prototype function)
+Movie.prototype.getCast = function(){
+	this.cast.forEach(function(actor)
+	{
+		console.log(actor.name);
+	});
+}
