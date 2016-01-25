@@ -1,68 +1,103 @@
 /*2.2 Selectors and properties*/
 /*Add background to the header, footer, aside and nav.*/
-.header, .navigator, .sidebar, .footer{
-	background-color:yellow;
+.header, .navigator, .sidebar, .footer {
+  background-color: #ffff00;
 }
 /*Add a global font definition (at html element) with a value of 14px, using a font-family you like.*/
-body{
-	font-size:14px;
-	font-family:Sans-serif;
-	-webkit-box-sizing: border-box;
+body {
+  font-size:14px;
+  font-family:Sans-serif;
+  -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 /*Center the header and footer text.*/
-.header, .footer{
-	text-align:center;
+.header, .footer {
+  text-align:center;
 }
-
+  
 /*
 2.3 Specificity
-	To <header> add class .header
-	To <footer> add class .footer
-	To <section> add class .content
-	To <nav> add class .navigation
-	To <aside> add class .sidebar
-	
-	.header must have a font size of 46px
-	.footer must have a font size of 10px
-	.content must have a font size of 14px
-	.navigation must have a font size of 12px
-	.sidebar must have a font size of 10px
+  To <header> add class .header
+  To <footer> add class .footer
+  To <section> add class .content
+  To <nav> add class .navigation
+  To <aside> add class .sidebar
+  
+  .header must have a font size of 46px
+  .footer must have a font size of 10px
+  .content must have a font size of 14px
+  .navigation must have a font size of 12px
+  .sidebar must have a font size of 10px
 */
-.header{font-size:46px;}
-.footer{font-size:10px;}
-.content{font-size:14px;}
-.navigator{font-size:12px;}
-.sidebar{font-size:10px;}
+.header {font-size:46px;}
+
+.content {font-size:14px;}
+
+.navigator {font-size:12px;}
+
+.footer, 
+.sidebar {
+  font-size:10px;
+}
 
 /*If the class attribute finishes with r (example header, footer), the background must be magenta.*/
-[class$="r"]{background-color:magenta;}
+[class$="r"] {
+  background-color: #ff00ff;
+}
+
 /*If the class attribute contains an a (example nav) but do NOT finish with r, the background must be blue.*/
-:not([class$="r"]) [class*="a"]{background-color:blue;}
+:not([class$="r"]) [class*="a"] {
+  background-color: #0000ff;
+}
+
 /*How could you add weight to the global font definition to win over the classes added by point 3?*/
-??
+body * {
+  font-weight: 800; 
+}
+
 /*Imagine there is a declaration like class=”oh-no-inline-styles” style=”background:red” and you need to change the background to green without changing the inline style. How could you accomplish this?*/
-.oh-no-inline-styles:hover{background-color:green;}
+.oh-no-inline-styles {
+  background-color: #008000 !important;
+}
 
 /*Now modify your CSS to reach something similar to the initial layout asked.*/
-*{margin:1%;}
-.header, .footer{padding:20px 0px;}
-.navigator, .sidebar{	
-    width: 25%; 
-	height:600px;
-	display:inline;
-	}
-.navigator, .content{float:left;}
-.sidebar{
-	float:right;
-	display:inline-block;
-	}
-.content {
-    width: 44%;
-	height:600px;
-	}
-.footer{clear:both;}
+* {
+  margin:1%;
+}
 
-/*IN PROGRESS: I can´t find out the way to fill content/padding for the .content child elements and align them to the .content botton*/
-.content *{ vertical-align:text-bottom; }
+.header,
+.footer {
+  padding:20px 0px;
+}
+
+.navigator,
+.sidebar {  
+  width: 25%; 
+  height:600px;
+  display:inline;
+}
+
+.navigator,
+.content {
+  float:left;
+}
+
+.sidebar {
+  float:right;
+  display:inline-block;
+}
+  
+.content {
+  width: 44%;
+  height:600px;
+}
+  
+.footer {
+  clear:both;
+}
+
+/*NOTE: I can´t find out the way to fill content/padding for the .content child elements and align them to the .content botton*/
+.content * { 
+  vertical-align:text-bottom; 
+}

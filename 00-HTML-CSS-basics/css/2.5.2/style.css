@@ -3,65 +3,70 @@ html { font-size: 100%; }
 /* Medium screens (640px) */
 @media (min-width: 500px) { 
   html {
-	  background-color:#0099ff;
-	  font-size: 110%; }
+    background-color: #0099ff;
+    font-size: 110%; 
+  }
   .column {
     margin: 2px;
-	float:left;
-	width:15%;
+	float: left;
+	width: 15%;
     padding-left: 1rem;
     padding-right: 1rem;	
-	display:inline-block;
+	display: inline-block;
   }
 }
 
 @media (min-width: 640px) { 
   html {
-	  background-color:#0099ff;
-	  font-size: 112%; }
+    background-color: #0099ff;
+    font-size: 112%;
+  }
   .column {
     margin: 5px;
-	float:left;
-	width:20%;
+	float: left;
+	width: 20%;
     padding-left: 1rem;
     padding-right: 1rem;	
-	display:inline-block;
+	display: inline-block;
   }
 }
 
 @media (min-width: 790px) {
   html {
-	  background-color:#33ccff;
-	  font-size: 115%; }
+    background-color: #33ccff;
+    font-size: 115%;
+  }
   .column {
     margin: 8px;
-	float:left;
-	width:25%;
+	float: left;
+	width: 25%;
     padding-left: 1rem;
     padding-right: 1rem;	
-	display:inline-block;
+	display: inline-block;
   }
 }	
 
 @media (min-width: 920px) { 
   html {
-	  background-color:#80dfff;
-	  font-size: 118%; }
+    background-color: #80dfff;
+    font-size: 118%;
+  }
   .column {
     margin: 10px;
-	float:left;
-	width:25%;
+	float: left;
+	width: 25%;
     padding-left: 1rem;
     padding-right: 1rem;	
-	display:inline-block;
+	display: inline-block;
   }
 }
 
 
 @media (min-width: 1024px) { 
   html {
-	  background-color:#ffffff;
-	  font-size: 120%; }
+    background-color: #ffffff;
+    font-size: 120%;
+  }
   .column {
     margin: 10px;
 	float:left;
@@ -72,10 +77,10 @@ html { font-size: 100%; }
   }
 }
 
-body{
+body {
 	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .container {
@@ -83,19 +88,23 @@ body{
 	padding: 10px 10px 10px 10px;
 }
 
-.div-hover{
-	display:none;
-	text-align:center;
-	color:white;
-	height:180px;
-	width:95%;
-	margin:0 auto;
+.div-hover {
+	display: none;
+	text-align: center;
+	color: #ffffff;
+	height: 180px;
+	width: 95%;
+	margin: 0 auto;
 }
-.column{
-	background-color:blue;
-	height:360px;
-	border:5px solid white;
-	}	
-.column:hover > .div-hover{display:inline-block;}
+
+.column {
+	background-color: #0000ff;
+	height: 360px;
+	border: 5px solid white;
+}	
+
+.column:hover > .div-hover{
+	display: inline-block;
+}
 
 
