@@ -5,12 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title>Topic 2</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type='text/javascript' src='js/jquery-1.12.0.js'></script>
     <script type='text/javascript' src='js/script.js'></script>
   </head>
   <body>
     <div class="main">
       Welcome to the Topic N° 2
     </div>
-    <div class="main">Turn on the console of your brownser to test the exercises</div>
+	<form id="movie-form" >
+	  <fieldset class="form">
+	    <legend>Insert Movie</legend>
+		<div>
+		  Title
+		  <input type="text" id="title" required />
+		</div>
+		<div>
+		  Duration
+		  <input type="text" id="duration" required />
+		</div>
+		<div>
+		  Country
+		  <input type="text" id="country" required />
+		</div>
+		<div>
+		  Year
+		  <input type="text" id="year" required />
+		</div>
+		<button type="button" id="new-movie">INSERT</button>
+	  </fieldset>
+	</form>
+	<div id="movie-show" class="main"></div>
+	<div class="main">
+	  <button type="button" id="btn-play">PLAY MOVIE</button>
+	  <button type="button" id="btn-stop">STOP MOVIE</button>
+	  <button type="button" id="btn-download">START DOWNLOAD</button>
+	</div>
+	<div class="main">
+	  <button type="button" id="btn-new-actor">INSERT ONE MORE ACTOR</button>
+	  <input type="text" id="txt-actor"></input>
+	</div>
+	<div class="main">
+	  <button type="button" id="btn-new-movie">INSERT OTHER MOVIE</button>	  
+	</div>
+	<div class="main">	
+	  <button type="button" id="btn-like">LIKE THIS MOVIE</button>	  
+	</div>
+	<div class="main">
+	  <button type="button" id="btn-share">SHARE MOVIE WITH</button>
+	  <input type="text" id="txt-share"></input>
+	</div>
+	<div id="div-state" class="main">
+	  STATE: STOPPED
+	</div>
+	<div id="div-download" class="main">
+	  DOWNLOADING: NO
+	</div>
+	<div id="div-share" class="main">
+	  SHARED : NO
+	</div>
+	<div id="div-like" class="main">
+	  LIKES: NONE
+	</div>
   </body>
 </html>

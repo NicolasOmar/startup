@@ -1,7 +1,37 @@
-.main{
-  border: 5px solid blue;
-  margin: 1%;
+.form, .main{
+  display: block;
   text-align: center;
-  display: inline-block;
-  padding:10px
+  width: 50%;
+  margin: 1% auto;
+  padding: 5px;
+  background-color: #ffffff;
+}
+
+.main{
+  border: 5px solid #0000ff;
+}
+
+body{
+  background-color: #005c99	;
+}
+
+.form{	
+  border: 3px solid #ff0000;
+}
+
+.form, #movie-show, #btn-stop{
+  display: none;
+}
+
+*{
+  font-family: Verdana;
+}
+
+#movie-form div{
+  padding: 5px;
+}
+
+#div-state, #div-download, #div-share, #div-like{
+  color: #ffffff;
+  background-color: #ff0000;
 }
