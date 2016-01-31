@@ -1,25 +1,3 @@
-<<<<<<< Updated upstream
-.main{ 
-	text-align: center; 
-	margin: 2%;
-	}
-.main ul li{ display: block; }
-.hidden{ display:none; }
-.album{
-	float:right;
-	border:3px blue solid;
-	margin:5px;
-	width:320px;
-	height:320px;
-	}
-
-.album img{
-	height:45%;
-	width:45%;
-	}
-	
-#art-spotify{margin:0 auto;}
-=======
 /*2 - Add a stylesheet to the index.html. Use the stylesheet to center the text of all section elements of the page.*/
 .main { 
   text-align: center; 
@@ -51,4 +29,3 @@
   margin: 0 auto;
   display: none;
 }
->>>>>>> Stashed changes
