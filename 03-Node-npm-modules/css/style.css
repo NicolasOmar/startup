@@ -1,7 +1,31 @@
-.main{
-  border: 5px solid blue;
-  margin: 1%;
+*{
+  font-family: Verdana;
+}
+
+.main, .form-movie, .form-director{  
+  margin: 0.5% auto;
   text-align: center;
-  display: inline-block;
-  padding:10px
+  display: block;
+  padding:10px;
+  width: 50%;
+}
+
+.form-movie *, .form-director *{
+	margin: 2px;
+}
+
+.form-director{
+	border: 5px solid #00ff00;
+}
+
+.form-movie{
+  border: 5px solid #ff0000;
+}
+
+.main{
+  border: 5px solid #0000ff;
+}
+
+.form-movie, .form-director{
+	display: none;
 }

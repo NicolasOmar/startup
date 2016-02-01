@@ -3,14 +3,60 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-    <title>Topic 2</title>
+    <title>Topic 3</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script type='text/javascript' src='movies.js'></script>
+	<script type='text/javascript' src='js/jquery-1.12.0.min.js'></script>
+    <script type="text/javascript" src="js/movies.js"></script>
+	<script type="text/javascript" src="js/directors.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
     <div class="main">
       Welcome to the Topic N° 3
     </div>
-    <div class="main">Turn on the console of your brownser to test the exercises</div>
+	
+	<div class="main" id="div-movie"></div>
+
+    <div class="main">
+	  <button type="button" id="btn-form-movie">NEW MOVIE</button>
+	  <button type="button" id="btn-form-director">NEW DIRECTOR</button>
+	</div>	
+	<form class="form-movie">
+	  <fieldset>
+	    <legend>Insert a Movie</legend>
+		<div>
+		  Title
+		  <input type="text" id="txt-title" />
+		</div>
+		<div>
+		  Duration
+		  <input type="text" id="txt-duration" />
+		</div>
+		<div>
+		  Country
+		  <input type="text" id="txt-country" />
+		</div>
+		<div>
+		  Year
+		  <input type="text" id="txt-year" />
+		</div>
+		<button type="button" id="btn-movie">INSERT MOVIE</button>
+	  </fieldset>
+	</form>
+	
+	<form class="form-director">
+	  <fieldset>
+		<legend>Insert a Director</legend>
+		<div>
+		  Name
+		  <input type="text" id="txt-director" />
+		</div>
+		<div>
+		  A Quote
+		  <input type="text" id="txt-quote" />
+		</div>
+		<button type="button" id="btn-director">INSERT DIRECTOR</button>
+	  </fieldset>
+	</form>
   </body>
 </html>

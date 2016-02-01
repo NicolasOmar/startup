@@ -1,11 +1,28 @@
 {
-  "name": "package.json",
-  "version": "1.0.0",
-  "description": "Topic 3, module testing",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "browserify-handbook",
+  "version": "1.8.0",
+  "description": "how to build modular applications with browserify",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/browserify-handbook.git"
   },
-  "author": "NicolasOmar",
-  "license": "ISC"
+  "homepage": "https://github.com/substack/browserify-handbook",
+  "keywords": [
+    "documentation",
+    "guide",
+    "handbook",
+    "browserify"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "cc-by-3.0",
+  "dependencies": {
+    "default-pager": "^1.0.1"
+  },
+  "bin": {
+    "browserify-handbook": "bin/cmd.js"
+  }
 }
