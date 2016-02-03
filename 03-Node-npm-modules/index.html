@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title>Topic 3</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<script type='text/javascript' src='js/jquery-1.12.0.min.js'></script>
-    <script type="text/javascript" src="js/movies.js"></script>
-	<script type="text/javascript" src="js/directors.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/movies.js"></script>
+	<script src="js/script.js"></script>
   </head>
   <body>
     <div class="main">
@@ -21,6 +20,7 @@
 	  <button type="button" id="btn-form-movie">NEW MOVIE</button>
 	  <button type="button" id="btn-form-director">NEW DIRECTOR</button>
 	</div>	
+	
 	<form class="form-movie">
 	  <fieldset>
 	    <legend>Insert a Movie</legend>
@@ -56,7 +56,13 @@
 		  <input type="text" id="txt-quote" />
 		</div>
 		<button type="button" id="btn-director">INSERT DIRECTOR</button>
+		<button type="button" id="btn-skip">SKIP</button>
 	  </fieldset>
 	</form>
+	
+	<div class="main" id="div-new-quote">
+	  <button type="button" id="btn-quote">INSERT NEW QUOTE</button>
+	  <input type="text" id="txt-new-quote" />
+	</div>
   </body>
 </html>

@@ -8,12 +8,7 @@ $(document).ready(function() {
   var ridleyScott = new Director('Ridley Scott');
   ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
   alien.set('director', ridleyScott);
-  /*
-  NOTE: I´m stucked in the last code line. So far, i can't call the function speak() in the way you shown me, the console throws me "Uncaught TypeError: Cannot read property 'speak' of undefined"
-    alien.get('director').speak(); //output: Ridley Scott says: 'Cast is...'
-  See this alternative function
-    alien.director.speak();
-  */
+  alien.get('director').speak();
   
   $(window).load(function() {
 	loadMovieData();
@@ -43,7 +38,8 @@ $(document).ready(function() {
 	  alien.set('director', null);
 	  alien.set('playing', false);
 		
-      loadMovieData();
+	  $('.form-movie').hide();
+	  $('.form-director').show();
 	}
 	else {
 	  alert('You have to fill all form fields to create a new movie');
@@ -56,26 +52,60 @@ $(document).ready(function() {
 	var quote = $('#txt-quote').val();
 	
 	if(name && quote) {
-		director = new Director(name);
-		director.set('quotes', [quote]);
+	  director = new Director(name);
+	  director.set('quotes', [quote]);
+	  alien.set('director', director);
+	  loadMovieData();
 	}
 	else {
-		alert('You have to fill all form fields to create a new director');
-		$('#txt-director').focus();
+	  alert('You have to fill all form fields to create a new director');
+	  $('#txt-director').focus();
+	}
+  });
+  
+  $('#btn-skip').click(function() {
+	loadMovieData();
+  });
+  
+  $('#btn-quote').click(function () {
+	var quote = $('#txt-new-quote').val();
+	
+	if(quote) {
+	  alien.get('director').addQuote(quote);
+	  loadMovieData();
+	  $('#txt-new-quote').focus();
+	}
+	else {
+	  alert('You have write the quote first');
+	  $('#txt-new-quote').focus();
 	}
   });
   
   function loadMovieData() {
-	  $('#div-movie').empty();
-	  var presentationText =
-	  'Loaded Movie´s Data:' + '<br>'
-	  + alien.get('title') + '<br>'
-	  + alien.get('duration') + '<br>'
-	  + alien.get('country') + '<br>'
-	  + alien.get('year')  + '<br>'
-	  $('#div-movie').append(presentationText);
+	$('#div-movie').empty();
+	$('#txt-new-quote, #txt-director, #txt-quote, #txt-title,#txt-duration, #txt-country, #txt-year').val('');
+	$('.main').show();
+	$('.form-movie, .form-director').hide();
+	var presentationText =
+	  '<div class="div-data">Loaded Movie´s Data:</div>'
+	  + '<div class="div-data">Title: ' + alien.get('title') + '</div>'
+	  + '<div class="div-data">Duration: ' + alien.get('duration') + '</div>'
+	  + '<div class="div-data">Country: ' + alien.get('country') + '</div>'
+	  + '<div class="div-data">Year: ' + alien.get('year') + '</div><br>';
 	  
-	  $('.main').show();
-      $('.form-movie, .form-director').hide();
+	if(alien.director) {
+	  presentationText +=  
+		'<div class="div-data"> Movie´s Director Data:</div>'
+		+ '<div class="div-data">Name: ' + alien.get('director').get('name') + '</div>'
+		+ '<div class="div-data">Quote/s: ' + alien.get('director').speak();
+		$('#div-new-quote').show();
+	}
+	else {
+	  presentationText +=  
+	  '<div class="div-data"> No Director Data:</div>';
+	  $('#div-new-quote').hide();
+	}
+
+	$('#div-movie').append(presentationText);
   }
 });

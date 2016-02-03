@@ -1,28 +1,15 @@
 {
-  "name": "browserify-handbook",
-  "version": "1.8.0",
-  "description": "how to build modular applications with browserify",
+  "name": "package",
+  "version": "1.0.0",
+  "description": "JSON package for topic 3",
+  "main": "js/movies.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/substack/browserify-handbook.git"
+    "url": "https://github.com/substack/browserify-handbook"
   },
-  "homepage": "https://github.com/substack/browserify-handbook",
-  "keywords": [
-    "documentation",
-    "guide",
-    "handbook",
-    "browserify"
-  ],
-  "author": {
-    "name": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net"
-  },
-  "license": "cc-by-3.0",
-  "dependencies": {
-    "default-pager": "^1.0.1"
-  },
-  "bin": {
-    "browserify-handbook": "bin/cmd.js"
-  }
+  "author": "Nicolas Omar Gonzalez Passerino",
+  "license": "ISC"
 }
