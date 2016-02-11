@@ -12,12 +12,23 @@
       Welcome to the Topic N° 3
     </div>
 	
-	<div class="main" id="div-movie"></div>
-
-    <div class="main">
+	<div class="main">
 	  <button type="button" id="btn-form-movie">NEW MOVIE</button>
 	  <button type="button" id="btn-form-director">NEW DIRECTOR</button>
-	</div>	
+	</div>
+	
+	<div class="main" id="div-new-quote">
+	  <div>
+		Movie
+		<select id="list-directors"></select>
+	  </div>
+	  <div>
+	    <button type="button" id="btn-quote">INSERT NEW QUOTE</button>
+	    <input type="text" id="txt-new-quote" />
+	  </div>
+	</div>
+	
+	<div class="main" id="div-movie"></div>
 	
 	<form class="form-movie">
 	  <fieldset>
@@ -46,6 +57,10 @@
 	  <fieldset>
 		<legend>Insert a Director</legend>
 		<div>
+		  Movie
+		  <select id="list-movies"></select>
+		</div>
+		<div>
 		  Name
 		  <input type="text" id="txt-director" />
 		</div>
@@ -58,9 +73,5 @@
 	  </fieldset>
 	</form>
 	
-	<div class="main" id="div-new-quote">
-	  <button type="button" id="btn-quote">INSERT NEW QUOTE</button>
-	  <input type="text" id="txt-new-quote" />
-	</div>
   </body>
 </html>

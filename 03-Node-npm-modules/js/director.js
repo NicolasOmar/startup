@@ -41,5 +41,5 @@ define('Director', function() {
       }
     }
   }
-  return new Director();
+  return Director;
 });

@@ -13,18 +13,12 @@ requirejs.config({
   alien.get('director').speak(); //output: Ridley Scott says: 'Cast is...
 */  
 require(['Movies', 'jquery'], function(Movies, $) {
-  var movieList = Movies;
-  movieList.movie.set('title', 'Alien');
-  movieList.movie.set('duration', 120);
-  movieList.movie.set('country', 'USA');
-  movieList.movie.set('year', 1995);
-  var ridleyScott = movieList.movie.get('director');
-  ridleyScott.set('name', 'Ridley Scott');
-  ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
-  movieList.movie.set('director', ridleyScott);
-  movieList.addMovie();
-  
   $(document).ready(function() {
+	var movieList = Movies;
+    var ridleyScott = movieList.newMovie.get('director');
+    ridleyScott.set('name', 'Ridley Scott');
+    ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
+    movieList.addMovie('Alien', 120, 'USA', 1995, ridleyScott);
 	loadMovieData();
 	
 	$('#btn-form-movie').click(function() {
@@ -44,13 +38,8 @@ require(['Movies', 'jquery'], function(Movies, $) {
 	  var year = $('#txt-year').val();
 	
 	  if(title && duration && country && year) {
-	    movieList.movie.set('title', title);
-	    movieList.movie.set('duration', duration);
-	    movieList.movie.set('country', country);
-	    movieList.movie.set('year', year);
-	    movieList.movie.set('director', null);
-	    movieList.movie.set('playing', false);
-		
+	    movieList.addMovie(title, duration, country, year, null);
+		loadMovieList();
 	    $('.form-movie').hide();
 	    $('.form-director').show();
 	  }
@@ -63,12 +52,12 @@ require(['Movies', 'jquery'], function(Movies, $) {
     $('#btn-director').click(function() {
 	  var name = $('#txt-director').val();
 	  var quote = $('#txt-quote').val();
-	
+	  var list = $('#list-movies').val();
+	  
 	  if(name && quote) {
 	    ridleyScott.set('name', name);
 	    ridleyScott.set('quotes', [quote]);
-	    movieList.movie.set('director', ridleyScott);
-		movieList.addMovie();
+		movieList.addDirector(list, ridleyScott);
 	    loadMovieData();
 	  }
 	  else {
@@ -78,15 +67,15 @@ require(['Movies', 'jquery'], function(Movies, $) {
     });
   
     $('#btn-skip').click(function() {
-      movieList.addMovie();
 	  loadMovieData();
     });
   
     $('#btn-quote').click(function () {
+	  var searchMovie = $('#list-directors').val();
 	  var quote = $('#txt-new-quote').val();
 	
 	  if(quote) {
-	    alien.get('director').addQuote(quote);
+		movieList.addQuoteDirector(searchMovie, quote)
 	    loadMovieData();
 	    $('#txt-new-quote').focus();
 	  }
@@ -97,11 +86,19 @@ require(['Movies', 'jquery'], function(Movies, $) {
     });
 	
 	function loadMovieData() {
-	  $('#div-movie').empty();
+	  $('#div-movie').empty();	  
 	  $('#txt-new-quote, #txt-director, #txt-quote, #txt-title,#txt-duration, #txt-country, #txt-year').val('');
 	  $('.main').show();
 	  $('.form-movie, .form-director').hide();
-	  $('#div-movie').append(movieList.listMovies());
+	  $('#div-movie').append(movieList.listMovies()); 
+	  loadMovieList();	  
     }
+	
+	function loadMovieList() {
+	  $('#list-movies').empty();
+	  $('#list-movies').append(movieList.selectMovies());
+	  $('#list-directors').empty();
+	  $('#list-directors').append(movieList.selectDirector());
+	}
   });
 });

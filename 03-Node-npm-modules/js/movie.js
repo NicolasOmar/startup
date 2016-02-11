@@ -2,14 +2,16 @@
 //4 - Create a Director class inside a module and set it as a dependency on the Movie module.
 define('Movie', ['Director'], function(Director) {
   function Movie() {
-    this.title = null;
+    this.title = '';
     this.duration = 0;
-    this.country = null;
+    this.country = '';
     this.year = 0;
-    this.director = Director;
+    this.director = new Director();
     this.playing = false;
-  
-    this.get = function(attribute) {
+  }
+	
+  Movie.prototype = {
+    get: function(attribute) {
       if (!this[attribute]) {
         console.log('The movie has not such attribute. Please, create one using the function set(title,movieTitle)');
       }
@@ -18,7 +20,7 @@ define('Movie', ['Director'], function(Director) {
       }
     },
 	
-    this.set = function(attribute, value) {
+    set: function(attribute, value) {
       if (!attribute){
         console.log('The attribute has not been seted correctly. Please, use the function set(title,movieTitle)');
       }
@@ -28,7 +30,7 @@ define('Movie', ['Director'], function(Director) {
       }
     },
   
-    this.get = function(attribute) {
+    get: function(attribute) {
       if (!this[attribute]) {
         console.log('The movie has not such attribute. Please, create one using the function set(title,movieTitle)');
       }
@@ -36,31 +38,6 @@ define('Movie', ['Director'], function(Director) {
 		return this[attribute];
       }
     }
-    this.play = function() {
-      if (!this.title) {
-      console.log('The movie has no title. Please, set one using the function set(title,movieTitle)');
-      }
-      else if (this.playing) {
-        console.log('The movie is playing rigth now. Please, stop the movie usint the function stop()');
-      }
-      else {
-        this.playing = true;
-        console.log('Playing ' + this.title);
-      }
-    },
-  
-    this.stop = function() {
-      if (!this.title) {
-        console.log('The movie has no title. Please, set one using the function set(title,movieTitle)');
-      }
-      else if (!this['playing']) {
-        console.log('The movie has not even started. Please, start the movie using the function play()');
-      }
-      else {
-        this.playing = false;
-        console.log(this.title + ' stopped');
-      }
-    }
   }
-  return new Movie();
+  return Movie;
 });
