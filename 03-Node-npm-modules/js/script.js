@@ -50,14 +50,12 @@ require(['Movies', 'jquery'], function(Movies, $) {
     });
   
     $('#btn-director').click(function() {
-	  var name = $('#txt-director').val();
-	  var quote = $('#txt-quote').val();
-	  var list = $('#list-movies').val();
+	  var directorName = $('#txt-director').val();
+	  var directorQuote = $('#txt-quote').val();
+	  var selectedMovie = $('#list-movies').val();
 	  
-	  if(name && quote) {
-	    ridleyScott.set('name', name);
-	    ridleyScott.set('quotes', [quote]);
-		movieList.addDirector(list, ridleyScott);
+	  if(directorName && directorQuote) {
+		movieList.addDirector(selectedMovie, directorName, directorQuote);
 	    loadMovieData();
 	  }
 	  else {

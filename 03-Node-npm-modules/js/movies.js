@@ -68,22 +68,23 @@ define('Movies', ['Movie'], function(Movie) {
 	},
 	
 	//NOTE: IN PROGRESS
-	addDirector: function(searchText, newDirector) {
+	addDirector: function(movieTitle, name, quote) {
 	  for(var I = 0; I < this.movieArray.length; I++) {
-		var movieDirector = this.movieArray[I].get('title');
+		var movieArray = this.movieArray[I].get('title');
 		
-		console.log(searchText + ' - ' + movieDirector);
-		if(movieDirector == searchText) {
-		    this.movieArray[I].set('director', newDirector);
+		console.log(movieTitle + ' - ' + movieArray);
+		if(movieArray === movieTitle) {
+		    this.movieArray[I].director.set('name', name);
+			this.movieArray[I].director.set('quotes', [quote]);
 		}		
 	  }
 	},
 	
-	addQuoteDirector: function(searchText, quoteText) {
+	addQuoteDirector: function(movieTitle, quoteText) {
 	  for(var I = 0; I < this.movieArray.length; I++) {
-		var movieDirector = this.movieArray[I].get('title');
+		var movieArray = this.movieArray[I].get('title');
 		
-		if(movieDirector == searchText) {
+		if(movieArray == movieTitle) {
 		    this.movieArray[I].get('director').addQuote(quoteText);
 		}
 	  }
