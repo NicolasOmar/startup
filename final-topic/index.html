@@ -6,24 +6,63 @@
     <title>Final Topic - AngularJS</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script src="js/angular.min.js"></script>
+	<script src="js/jquery-1.12.0.min.js"></script>
+	<script src="js/script.js"></script>
   </head>
   <body ng-app="movieCollection">
     <div class="main">
       Welcome to the Final Topic - AngularJS
     </div>
+	<form class="form-movie" ng-controller="movie">
 	
-	<div class="main" ng-controller="director">
-	  {{ director.name }} - About the movie, {{ speak() }}
-		<p>Incluir director</p>
-		<input type="text" ng-model="Name">
-		<input type="text" ng-model="Quote">
-		<button ng-click="sumarDirector()">Objeto director</button>
-	  </div>
-	</div>
+	  <fieldset>
+	    <legend>New Movie</legend>
+		
+		<div>
+	      Title:
+	      <input type="text" ng-model="titleModel" />
+	    </div>
+	    <div>
+	      Duration:
+	      <input type="text" ng-model="durationModel" />
+	    </div>
+	    <div>
+	      Country:
+	      <input type="text" ng-model="countryModel" />
+	    </div>
+	    <div>
+	      Year:
+	      <input type="text" ng-model="yearModel" />
+	    </div>
+	  </fieldset>
+	  <fieldset>
+	    <legend>Director</legend>
+		
+		<div>
+	      Name:
+	      <input type="text" ng-model="directorModel" />
+	    </div>
+		<div>
+	      A Quote/Comment about the movie:
+	      <input type="text" ng-model="quoteModel" />
+	    </div>
+	  </fieldset>
+	  
+	  <fieldset>
+	    <button id="new-movie-button" ng-click="plusMovie()">Create Movie</button>
+	  </fieldset>
+	  
+	  <fieldset>
+	  <legend id="div-movies"></legend>
+	    <div class="movie" ng-repeat="movie in moviesArray">
+	      {{ movie.showMovie() }} <br> {{ movie.director.showDirector() }}
+	    </div>
+	  </fieldset>
+	</form>
 	
 	<!--App-->
 	<script src="js/app.js"></script>
-	<!--Controllers-->
-	<script src="js/directorC.js"></script>
+	<!--Controllers-->	
+	<script src="js/movieController.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@
   font-family: Verdana;
 }
 
-.main, .form-movie, .form-director{  
+.main, .form-movie{  
   margin: 0.5% auto;
   text-align: center;
   display: block;
@@ -10,12 +10,8 @@
   width: 50%;
 }
 
-.form-movie *, .form-director *{
+.form-movie *{
 	margin: 2px;
-}
-
-.form-director{
-	border: 5px solid #00ff00;
 }
 
 .form-movie{
@@ -26,6 +22,21 @@
   border: 5px solid #0000ff;
 }
 
-.form-movie, .form-director{
-	display: none;
+/*.form-movie {
+  display: none;
+}*/
+
+.movie {
+  text-align: left;
+  padding: 3px 3px 3px 7px;
+  border: 5px solid #00ff00;
+}
+
+button {
+  font-size: 17px;
+  background-color: #0059b3;
+  color: #ffffff;
+  margin: 15px;
+  padding:5px;
+  width: 20%;
 }
