@@ -20,26 +20,23 @@ app.service('director', function() {
       }
       else {
         this[attribute] = value;
-        console.log('Attribute ' + attribute + ' = ' + value);
       }
     },
 	
     this.addQuote = function(quote) {
       this.quotes.push(quote);
-      console.log('Quote added');
     },
 	
     this.speak = function() {
-      var quotesText = this.name + ' says: ';
+      var quotesText = '';
       if(this.quotes.length > 0) {
         this.quotes.forEach(function (quote) {
           quotesText += quote + '. ';  
         });
-        console.log(quotesText);
         return quotesText;
       }
       else {
-        console.log('There is no registred quotes');
+        return 'There is no registred quotes';
       }
     },
 	
@@ -48,5 +45,5 @@ app.service('director', function() {
 	    + ' - Comments: ' + this.speak();
 	}
   }
-  return { Director : new Director() };
+  return { Director : Director };
 });

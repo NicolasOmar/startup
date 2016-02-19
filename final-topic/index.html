@@ -10,55 +10,61 @@
 	<script src="js/script.js"></script>
   </head>
   <body ng-app="movieCollection">
-    <div class="main">
+    <div class="div-title">
       Welcome to the Final Topic - AngularJS
     </div>
-	<form class="form-movie" ng-controller="movie">
+	<div ng-controller="movie">
+	  <form class="div-registrer">	
+	    <fieldset>
+	      <legend>New Movie</legend>		
+		  <div>
+	        Title:
+	        <input id="first-text" type="text" ng-model="titleModel" />
+	      </div>
+	      <div>
+	        Duration:
+	        <input type="text" ng-model="durationModel" />
+	      </div>
+	      <div>
+	        Country:
+	        <input type="text" ng-model="countryModel" />
+	      </div>
+	      <div>
+	        Year:
+	        <input type="text" ng-model="yearModel" />
+	      </div>
+	    </fieldset>
+	   
+	    <fieldset>
+	      <legend>Director</legend>		
+		  <div>
+	        Name:
+	        <input type="text" ng-model="directorModel" />
+	      </div>
+		  <div>
+	        A Comment about the movie:
+	        <input type="text" ng-model="quoteModel" />
+	      </div>
+	    </fieldset>
+	    
+		<button id="register-button" class="movie-button" ng-click="addMovie()">Create Movie</button>	    
+	  </form>
 	
-	  <fieldset>
-	    <legend>New Movie</legend>
-		
-		<div>
-	      Title:
-	      <input type="text" ng-model="titleModel" />
-	    </div>
-	    <div>
-	      Duration:
-	      <input type="text" ng-model="durationModel" />
-	    </div>
-	    <div>
-	      Country:
-	      <input type="text" ng-model="countryModel" />
-	    </div>
-	    <div>
-	      Year:
-	      <input type="text" ng-model="yearModel" />
-	    </div>
-	  </fieldset>
-	  <fieldset>
-	    <legend>Director</legend>
-		
-		<div>
-	      Name:
-	      <input type="text" ng-model="directorModel" />
+	  <div class="div-movie">
+	    <div id="div-movies"></div>
+	    <div class="div-movie-data" ng-repeat="movie in moviesArray">
+	      Movie Data: <br> {{ movie.showMovie() }} <br> {{ movie.director.showDirector() }}
+	      <div>
+		    <!--<button class="movie-button" ng-click="modifyMovie($index)">Modify Movie</button>-->
+		    <button class="movie-button" ng-click="deleteMovie($index)">Delete Movie</button>
+		    <button class="movie-button" ng-click="addComent($index)">Add Comment</button>
+		  </div>
 	    </div>
 		<div>
-	      A Quote/Comment about the movie:
-	      <input type="text" ng-model="quoteModel" />
-	    </div>
-	  </fieldset>
-	  
-	  <fieldset>
-	    <button id="new-movie-button" ng-click="plusMovie()">Create Movie</button>
-	  </fieldset>
-	  
-	  <fieldset>
-	  <legend id="div-movies"></legend>
-	    <div class="movie" ng-repeat="movie in moviesArray">
-	      {{ movie.showMovie() }} <br> {{ movie.director.showDirector() }}
-	    </div>
-	  </fieldset>
-	</form>
+		  <button id="new-movie-button" class="movie-button">Create Movie</button>
+		</div>
+	  </div>
+	</div>
 	
 	<!--App-->
 	<script src="js/app.js"></script>

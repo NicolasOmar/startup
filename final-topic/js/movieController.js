@@ -7,7 +7,7 @@ app.controller('movie', ['$scope','director', function($scope, factoryDirector) 
     this.duration = 0;
     this.country = '';
     this.year = 0;
-    this.director = factoryDirector.Director;
+    this.director = new factoryDirector.Director();
     this.playing = false;
 	
 	this.get = function(attribute) {
@@ -25,7 +25,6 @@ app.controller('movie', ['$scope','director', function($scope, factoryDirector) 
       }
       else {
         this[attribute] = value;
-        console.log('Attribute ' + attribute + ' = ' + value);
       }
     }
 	
@@ -37,7 +36,7 @@ app.controller('movie', ['$scope','director', function($scope, factoryDirector) 
 	}
   }
   
-  $scope.plusMovie = function () {
+  $scope.addMovie = function () {
 	var newMovie = new $scope.movie();
 	newMovie.set('title', $scope.titleModel);
 	newMovie.set('duration', $scope.durationModel);
@@ -47,6 +46,31 @@ app.controller('movie', ['$scope','director', function($scope, factoryDirector) 
 	newMovie.director.set('quotes', [$scope.quoteModel]);
 	
 	$scope.moviesArray.push(newMovie);
-	console.log($scope.moviesArray);
+  }
+  
+  /* NOTE: IN PROGRESS
+  $scope.modifyMovie = function(index) {
+	var movie = $scope.moviesArray[index];
+	$scope.titleModel = movie.title;
+	$scope.durationModel = movie.get('duration');
+	$scope.countryModel = movie.get('country');
+	$scope.yearModel = movie.get('year');
+	$scope.directorModel = movie.director.get('name');
+	$scope.quoteModel = movie.get('director').speak();
+	
+	console.log(movie.get('title'));
+  }
+  */
+  
+  $scope.deleteMovie = function(index) {
+	var confirmDelete = confirm('You are going to delete a registred Movie. Are you sure?')
+	if(confirmDelete) {
+	  $scope.moviesArray.splice(index, 1);
+	}
+  }
+  
+  $scope.addComent = function(index) {
+	var newComment = prompt('Add a new comment abouth the movie', '');
+	$scope.moviesArray[index].director.addQuote(newComment);
   }
 }]);

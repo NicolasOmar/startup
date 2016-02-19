@@ -2,41 +2,48 @@
   font-family: Verdana;
 }
 
-.main, .form-movie{  
+.div-registrer, .div-movie, .div-title{  
   margin: 0.5% auto;
   text-align: center;
   display: block;
-  padding:10px;
+  padding: 10px;
   width: 50%;
 }
 
-.form-movie *{
-	margin: 2px;
+.div-movie *, .div-registrer *{
+  margin: 2px;
 }
 
-.form-movie{
-  border: 5px solid #ff0000;
+.div-movie{
+  border: 5px solid #ff0000;  
 }
 
-.main{
+.div-title {
+  border: 5px solid #00b3b3;
+}
+
+.div-registrer{
   border: 5px solid #0000ff;
-}
-
-/*.form-movie {
   display: none;
-}*/
-
-.movie {
-  text-align: left;
-  padding: 3px 3px 3px 7px;
-  border: 5px solid #00ff00;
 }
 
-button {
+.div-movie-data {
+  padding: 3px 3px 3px 7px;
+  border: 3px solid #3399ff;
+  display: box;
   font-size: 17px;
+}
+
+.movie-button {
+  font-size: 16px;
   background-color: #0059b3;
   color: #ffffff;
-  margin: 15px;
-  padding:5px;
-  width: 20%;
+  margin: 5px;
+  padding: 5px;
+  width: 15%;
+}
+
+#div-movies {
+  padding-bottom: 5px;
+  text-decoration: underline;
 }
