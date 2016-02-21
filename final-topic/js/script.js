@@ -1,17 +1,17 @@
 $(document).ready(function() {
   $('#div-movies').text('There is no registred movies yet.');
-  $('#first-text').focus();
+  changeDivs(true);
   
   $('#new-movie-button').click(function() {
 	changeDivs(false);
-	$('#first-text').focus();
   });
   
   $('#register-button').click(function() {
-	$('#div-movies').text('Registred Movies.');
-	$('input:text').val('');
-	$('#first-text').focus();
-	changeDivs(true);
+	if(fieldsvalidateFieldsd) {
+	  $('#div-movies').text('Registred Movies.');
+	  $('input:text').val('');	  
+	  changeDivs(true);
+	}
   });
   
   function changeDivs(bool) {
@@ -23,5 +23,6 @@ $(document).ready(function() {
 	  $('.div-registrer').show();
 	  $('.div-movie').hide();
 	}
-  }
+	$('#title-text').focus();
+  };
 });

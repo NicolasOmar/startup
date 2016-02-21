@@ -24,7 +24,6 @@
 
 .div-registrer{
   border: 5px solid #0000ff;
-  display: none;
 }
 
 .div-movie-data {
@@ -46,4 +45,12 @@
 #div-movies {
   padding-bottom: 5px;
   text-decoration: underline;
+}
+
+.div-registrer input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.div-registrer input.ng-valid.ng-touched {
+  background-color: #78FA89;
 }

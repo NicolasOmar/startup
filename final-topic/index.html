@@ -10,40 +10,40 @@
 	<script src="js/script.js"></script>
   </head>
   <body ng-app="movieCollection">
-    <div class="div-title">
+    <article class="div-title">
       Welcome to the Final Topic - AngularJS
-    </div>
+    </article>
 	<div ng-controller="movie">
-	  <form class="div-registrer">	
+	  <form class="div-registrer" required>	
 	    <fieldset>
 	      <legend>New Movie</legend>		
 		  <div>
-	        Title:
-	        <input id="first-text" type="text" ng-model="titleModel" />
+	        <label>Title:</label>
+	        <input id="title-text" type="text" ng-model="titleModel" required/>
 	      </div>
 	      <div>
-	        Duration:
-	        <input type="text" ng-model="durationModel" />
+	        <label>Duration:</label>
+	        <input type="text" ng-model="durationModel" required/>
 	      </div>
 	      <div>
-	        Country:
-	        <input type="text" ng-model="countryModel" />
+	        <label>Country:</label>
+	        <input type="text" ng-model="countryModel" required/>
 	      </div>
 	      <div>
-	        Year:
-	        <input type="text" ng-model="yearModel" />
+	        <label>Year:</label>
+	        <input type="text" ng-model="yearModel" required/>
 	      </div>
 	    </fieldset>
 	   
 	    <fieldset>
 	      <legend>Director</legend>		
 		  <div>
-	        Name:
-	        <input type="text" ng-model="directorModel" />
+	        <label>Name:</label>
+	        <input type="text" ng-model="directorModel" required/>
 	      </div>
 		  <div>
-	        A Comment about the movie:
-	        <input type="text" ng-model="quoteModel" />
+	        <label>A Comment about the movie:</label>
+	        <input type="text" ng-model="quoteModel" required/>
 	      </div>
 	    </fieldset>
 	    
@@ -55,7 +55,7 @@
 	    <div class="div-movie-data" ng-repeat="movie in moviesArray">
 	      Movie Data: <br> {{ movie.showMovie() }} <br> {{ movie.director.showDirector() }}
 	      <div>
-		    <!--<button class="movie-button" ng-click="modifyMovie($index)">Modify Movie</button>-->
+		   <!--<button class="movie-button" ng-click="modifyMovie($index)">Modify Movie</button>-->
 		    <button class="movie-button" ng-click="deleteMovie($index)">Delete Movie</button>
 		    <button class="movie-button" ng-click="addComent($index)">Add Comment</button>
 		  </div>
@@ -66,9 +66,7 @@
 	  </div>
 	</div>
 	
-	<!--App-->
+	<!--App + Services + Controllers-->
 	<script src="js/app.js"></script>
-	<!--Controllers-->	
-	<script src="js/movieController.js"></script>
   </body>
 </html>
