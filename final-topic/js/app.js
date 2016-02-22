@@ -92,7 +92,6 @@ app.controller('movie', ['$scope', 'movie', function($scope, movie) {
   $scope.addMovie = function () {
 	
 	if(validateFields()) {
-	  console.log($scope.titleModel);
 	  var newMovie = new movie.Movie();
 	  newMovie.set('title', $scope.titleModel);
 	  newMovie.set('duration', $scope.durationModel);
@@ -102,12 +101,13 @@ app.controller('movie', ['$scope', 'movie', function($scope, movie) {
 	  newMovie.director.set('quotes', [$scope.quoteModel]);
 	  $scope.moviesArray.push(newMovie);
 	
-	  clearFields();	  
+	  clearFields();
 	}
   }
   
-  /*NOTE: NOT WORKING FUNCTION, PROBLEM SETTING $SCOPE.MODELS VALUES
   $scope.modifyMovie = function(index) {
+	changeDivs(true);
+	
 	var movie = $scope.moviesArray[index];
 	$scope.titleModel = movie.get('title');
 	$scope.durationModel = movie.get('duration');
@@ -115,11 +115,22 @@ app.controller('movie', ['$scope', 'movie', function($scope, movie) {
 	$scope.yearModel = movie.get('year');
 	$scope.directorModel = movie.get('director').get('name');
 	$scope.quoteModel = movie.get('director').speak();
+	$scope.indexValue = index;
+  }
+  
+  $scope.updateMovie = function() {
+	var movie = $scope.moviesArray[$scope.indexValue];
+	movie.set('title', $scope.titleModel);
+	movie.set('duration', $scope.durationModel);
+	movie.set('country', $scope.countryModel);
+	movie.set('year', $scope.yearModel);
+	movie.get('director').set('name', $scope.directorModel);
+	movie.get('director').set('quotes', [$scope.quoteModel]);
 	
-	//same returning values (string), only works the last $scope.quoteModel
-	console.log(typeof movie.get('director').speak());
-	console.log(typeof movie.get('country'));
-  }*/
+	$scope.moviesArray[$scope.indexValue] = movie;
+	
+	changeDivs(false);
+  }
   
   $scope.deleteMovie = function(index) {
 	var confirmDelete = confirm('You are going to delete a registred Movie. Are you sure?')
@@ -153,5 +164,17 @@ app.controller('movie', ['$scope', 'movie', function($scope, movie) {
 	$scope.yearModel = '';
 	$scope.directorModel = '';
 	$scope.quoteModel = '';
+  }
+  
+  var changeDivs = function(bool) {
+	if(bool) {
+      angular.element('.div-registrer, #modify-movie-button').css('display', 'block');
+	  angular.element('.div-movie, #register-button').css('display', 'none');
+	}
+	else {
+	  angular.element('.div-registrer, #modify-movie-button').css('display', 'none');
+	  angular.element('.div-movie, #register-button').css('display', 'block');
+	}
+	clearFields();
   }
 }]);

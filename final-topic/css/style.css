@@ -14,7 +14,7 @@
   margin: 2px;
 }
 
-.div-movie{
+.div-movie {
   border: 5px solid #ff0000;  
 }
 
@@ -22,7 +22,7 @@
   border: 5px solid #00b3b3;
 }
 
-.div-registrer{
+.div-registrer {
   border: 5px solid #0000ff;
 }
 
@@ -34,12 +34,12 @@
 }
 
 .movie-button {
-  font-size: 16px;
-  background-color: #0059b3;
-  color: #ffffff;
-  margin: 5px;
+  margin: 0.5% auto;
   padding: 5px;
   width: 15%;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #0059b3;
 }
 
 #div-movies {
@@ -53,4 +53,8 @@
 
 .div-registrer input.ng-valid.ng-touched {
   background-color: #78FA89;
+}
+
+#modify-movie-button {
+  display: none;  
 }

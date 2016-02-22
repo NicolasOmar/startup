@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title>Final Topic - AngularJS</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<script src="js/angular.min.js"></script>
 	<script src="js/jquery-1.12.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
 	<script src="js/script.js"></script>
   </head>
   <body ng-app="movieCollection">
@@ -47,7 +47,8 @@
 	      </div>
 	    </fieldset>
 	    
-		<button id="register-button" class="movie-button" ng-click="addMovie()">Create Movie</button>	    
+		<button id="register-button" class="movie-button" ng-click="addMovie()">Create Movie</button>
+		<button id="modify-movie-button" class="movie-button" ng-model="idexValue" ng-click="updateMovie()">Modify Movie</button>
 	  </form>
 	
 	  <div class="div-movie">
@@ -55,7 +56,7 @@
 	    <div class="div-movie-data" ng-repeat="movie in moviesArray">
 	      Movie Data: <br> {{ movie.showMovie() }} <br> {{ movie.director.showDirector() }}
 	      <div>
-		   <!--<button class="movie-button" ng-click="modifyMovie($index)">Modify Movie</button>-->
+		   <button id="modify-button" class="movie-button" ng-click="modifyMovie($index)">Modify Movie</button>
 		    <button class="movie-button" ng-click="deleteMovie($index)">Delete Movie</button>
 		    <button class="movie-button" ng-click="addComent($index)">Add Comment</button>
 		  </div>
