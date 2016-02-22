@@ -7,9 +7,10 @@ $(document).ready(function() {
   });
   
   $('#register-button').click(function() {
-	if(fieldsvalidateFieldsd) {
+	if(globalValidation) {
 	  $('#div-movies').text('Registred Movies.');
-	  $('input:text').val('');	  
+	  $('input:text').val('');
+	  $('input:text').css('background-color','#ffffff');
 	  changeDivs(true);
 	}
   });

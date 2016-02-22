@@ -85,10 +85,9 @@ app.service('movie', ['director', function(director) {
   return { Movie : Movie };
 }]);
 
-app.controller('movie', ['$scope', 'movie', function($scope, movie) {
-	
+app.controller('movie', ['$scope', 'movie', function($scope, movie) {	
   $scope.moviesArray = [];
-  fieldsvalidateFieldsd = false;
+  globalValidation = false;
   
   $scope.addMovie = function () {
 	
@@ -104,9 +103,6 @@ app.controller('movie', ['$scope', 'movie', function($scope, movie) {
 	  $scope.moviesArray.push(newMovie);
 	
 	  clearFields();	  
-	} 
-	else {
-	  alert('required fields not filled');
 	}
   }
   
@@ -141,11 +137,11 @@ app.controller('movie', ['$scope', 'movie', function($scope, movie) {
 	if($scope.titleModel && $scope.durationModel
 		&& $scope.countryModel && $scope.yearModel
 		&& $scope.directorModel && $scope.quoteModel) {
-	  fieldsvalidateFieldsd = true;
+	  globalValidation = true;
 	  return true;
 	}
 	else {
-	  fieldsvalidateFieldsd = false;
+	  globalValidation = false;
 	  return false;
 	}
   }
